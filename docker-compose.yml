@@ -1,15 +1,12 @@
 services:
   console_app:
-    container_name: ioda_php
-    depends_on:
-      - luceneparser
+    image: php_prod
     build: # we are specifying the version in the Dockerfile
-      target: php_dev
+      target: php_prod
       dockerfile: docker/php/Dockerfile
     volumes:
-      - .:/srv/ioda
-      - ./vendor:/srv/ioda/vendor
-    working_dir: /srv/ioda
+      - .:/srv/swarmdeploy
+    working_dir: /srv/swarmdeploy
     ports:
       - "8000:8000"
 
